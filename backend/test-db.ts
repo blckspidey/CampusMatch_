@@ -1,0 +1,3 @@
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
+prisma.college.findFirst().then(c => console.log(JSON.stringify(c, null, 2))).catch(console.error).finally(() => prisma.$disconnect());
