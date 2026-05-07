@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import client from '../api/client';
 import { IndianRupee, Star, MapPin, GraduationCap, ArrowRight, CheckCircle2, TrendingUp, Award, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ export default function Compare() {
   useEffect(() => {
     const fetchAll = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/colleges?limit=100');
+        const res = await client.get('/colleges?limit=100');
         setAllColleges(res.data.data);
       } catch (error) {
         console.error(error);
